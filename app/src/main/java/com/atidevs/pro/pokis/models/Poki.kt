@@ -1,23 +1,28 @@
 package com.atidevs.pro.pokis.models
 
-import android.graphics.Bitmap
+import com.google.gson.annotations.SerializedName
 
-class Poki(pokiName: String = "NAME 404!", pokiImage: Bitmap?) {
+class Poki {
 
-    public var name: String = pokiName
-        get() {
-            return field
-        }
-        set(value: String) {
-            field = value
-        }
+    @field:SerializedName("name")
+    var name: String? = null
 
-    public var image = pokiImage
-        get() {
-            return field
-        }
-        set(value: Bitmap?) {
-            field = value
-        }
 
+    @field:SerializedName("url")
+    var pokiUrl: String? = null
+
+}
+
+class PokiResponse {
+    @field:SerializedName("count")
+    var count: Int? = 0
+
+    @field:SerializedName("next")
+    var nextDataset: String? = null
+
+    @field:SerializedName("previous")
+    var previousDataset: String? = null
+
+    @field:SerializedName("results")
+    var pokis: List<Poki>? = null
 }

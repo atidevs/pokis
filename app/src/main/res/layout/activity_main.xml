@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_pokis"
@@ -18,5 +18,35 @@
         tools:itemCount="50"
         tools:layoutManager="GridLayoutManager"
         tools:spanCount="3" />
+
+    <TextView
+        android:id="@+id/text_view_error_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/loading_error_msg"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_view_pokis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_error"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/image_view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorRed"
+        android:contentDescription="@string/error_loading_data"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:src="@drawable/ic_error"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_view_pokis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view_pokis"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view_pokis"
+        app:layout_constraintVertical_bias="0.456" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
