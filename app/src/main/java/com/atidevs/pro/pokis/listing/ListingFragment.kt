@@ -10,7 +10,7 @@ import com.atidevs.pro.pokis.databinding.FragmentListingBinding
 class ListingFragment : Fragment() {
 
     private var _binding: FragmentListingBinding? = null
-    val binding: FragmentListingBinding = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +21,8 @@ class ListingFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
