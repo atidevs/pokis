@@ -4,9 +4,6 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +11,6 @@ import com.atidevs.pro.pokis.R
 import com.atidevs.pro.pokis.adapters.PokisAdapter
 import com.atidevs.pro.pokis.listing.ListingFragment
 import com.atidevs.pro.pokis.models.Poki
-import com.atidevs.pro.pokis.viewmodels.PokiViewModel
 
 class MainActivity : AppCompatActivity() {
 

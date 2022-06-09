@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.viewmodels
+package com.atidevs.pro.pokis.listing
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import com.atidevs.pro.pokis.datasource.PokiDataSource
 import com.atidevs.pro.pokis.datasource.PokiDataSourceFactory
 import com.atidevs.pro.pokis.models.Poki
 
-class PokiViewModel : ViewModel() {
+class ListingViewModel : ViewModel() {
 
     var pokiPagedList: LiveData<PagedList<Poki>>
 
