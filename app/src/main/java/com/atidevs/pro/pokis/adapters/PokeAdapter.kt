@@ -14,7 +14,7 @@ import com.atidevs.pro.pokis.utils.Utils
 import com.squareup.picasso.Picasso
 import java.util.*
 
-class PokisAdapter : PagedListAdapter<Poki, PokisAdapter.PokiViewHolder>(POKI_COMPARATOR) {
+class PokeAdapter : PagedListAdapter<Poki, PokeAdapter.PokiViewHolder>(POKI_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokiViewHolder {
         val view = LayoutInflater.from(parent.context)
