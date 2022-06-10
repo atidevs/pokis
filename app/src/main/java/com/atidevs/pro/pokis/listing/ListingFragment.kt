@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.atidevs.pro.pokis.adapters.PokeAdapter
 import com.atidevs.pro.pokis.databinding.FragmentListingBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class ListingFragment : Fragment() {
 
@@ -18,7 +20,7 @@ class ListingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val gridLayoutManager by lazy { GridLayoutManager(context, GRID_SPAN_COUNT) }
-    private val pokeAdapter by lazy { PokeAdapter() }
+    private val pokeAdapter by lazy { PokiAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +37,11 @@ class ListingFragment : Fragment() {
             layoutManager = gridLayoutManager
             adapter = pokeAdapter
         }
-
+        lifecycleScope.launch {
+            listingViewModel.pokiFlow.collect {
+                pokeAdapter.submitData(it)
+            }
+        }
     }
 
     override fun onDestroyView() {

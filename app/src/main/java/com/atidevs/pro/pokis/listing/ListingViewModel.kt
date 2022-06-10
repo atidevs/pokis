@@ -1,29 +1,32 @@
 package com.atidevs.pro.pokis.listing
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
-import com.atidevs.pro.pokis.datasource.PokiDataSource
-import com.atidevs.pro.pokis.datasource.PokiDataSourceFactory
+import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.atidevs.pro.pokis.api.ApiServiceBuilder
+import com.atidevs.pro.pokis.api.RestApiService
 import com.atidevs.pro.pokis.models.Poki
+import kotlinx.coroutines.flow.Flow
 
 class ListingViewModel : ViewModel() {
 
-    var pokiPagedList: LiveData<PagedList<Poki>>
-
-    private var liveDataSource: LiveData<PokiDataSource>
+    var pokiFlow: Flow<PagingData<Poki>>
 
     init {
-        val itemDataSourceFactory = PokiDataSourceFactory()
-        liveDataSource = itemDataSourceFactory.pokiLiveDataSource
+        val apiService = ApiServiceBuilder.buildService(RestApiService::class.java)
 
-        val config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPageSize(PokiDataSource.PAGE_SIZE)
-            .build()
+        pokiFlow = Pager(
+            PagingConfig(PokiPagingSource.PAGE_SIZE)
+        ) {
+            PokiPagingSource(apiService)
+        }.flow
+            .cachedIn(viewModelScope)
+    }
 
-        pokiPagedList = LivePagedListBuilder(itemDataSourceFactory, config)
-            .build()
+    override fun onCleared() {
+        super.onCleared()
     }
 }
