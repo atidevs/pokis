@@ -8,7 +8,6 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.atidevs.pro.pokis.api.ApiServiceBuilder
 import com.atidevs.pro.pokis.api.RestApiService
-import com.atidevs.pro.pokis.models.Poki
 import kotlinx.coroutines.flow.Flow
 
 class ListingViewModel : ViewModel() {

@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlinx-serialization'
 
 android {
     compileSdkVersion 32
@@ -22,8 +23,12 @@ android {
     }
 
     compileOptions {
-        targetCompatibility = "11"
-        sourceCompatibility = "11"
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
     }
 
     buildFeatures {

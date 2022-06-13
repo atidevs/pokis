@@ -1,9 +1,11 @@
 package com.atidevs.pro.pokis.listing
 
+import android.accounts.NetworkErrorException
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.atidevs.pro.pokis.api.NetworkPoki
 import com.atidevs.pro.pokis.api.RestApiService
-import com.atidevs.pro.pokis.models.Poki
+import com.atidevs.pro.pokis.api.asPoki
 import com.atidevs.pro.pokis.utils.getQueryParams
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -28,12 +30,14 @@ class PokiPagingSource(private val apiService: RestApiService) : PagingSource<In
                 val response = call.awaitResponse()
                 if (response.isSuccessful && response.body() != null) {
                     val body = response.body()
-                    val responseItems = body!!.pokis
-                    LoadResult.Page(
-                        responseItems!!,
-                        null,
-                        body.nextDataset?.getQueryParams()?.get(OFFSET_QUERY_PARAM)?.toInt()
-                    )
+                    val responseItems = body?.results?.map { it.asPoki() }
+                    responseItems?.let {
+                        LoadResult.Page(
+                            responseItems,
+                            null,
+                            body.next.getQueryParams()[OFFSET_QUERY_PARAM]?.toInt()
+                        )
+                    } ?: throw NetworkErrorException()
                 } else {
                     LoadResult.Error(Throwable(response.errorBody().toString()))
                 }
