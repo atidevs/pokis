@@ -13,7 +13,10 @@ import retrofit2.HttpException
 import retrofit2.awaitResponse
 import java.io.IOException
 
-class PokiPagingSource(private val apiService: RestApiService) : PagingSource<Int, Poki>() {
+class PokiPagingSource(
+    private val apiService: RestApiService,
+    private val localCache: LocalDataSource
+) : PagingSource<Int, Poki>() {
 
     override fun getRefreshKey(state: PagingState<Int, Poki>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
@@ -32,6 +35,7 @@ class PokiPagingSource(private val apiService: RestApiService) : PagingSource<In
                     val body = response.body()
                     val responseItems = body?.results?.map { it.asPoki() }
                     responseItems?.let {
+                        localCache.saveAll(it)
                         LoadResult.Page(
                             responseItems,
                             null,
