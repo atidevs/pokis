@@ -42,8 +42,10 @@ dependencies {
     def implDependencies = rootProject.ext.implDependencies
     def testDependencies = rootProject.ext.testDependencies
     def androidTestDependencies = rootProject.ext.androidTestDependencies
+    def compilerDependencies = rootProject.ext.annotationProcessor
 
     implementation implDependencies.values()
     androidTestImplementation testDependencies.values()
     testImplementation androidTestDependencies.values()
+    kapt compilerDependencies.values()
 }

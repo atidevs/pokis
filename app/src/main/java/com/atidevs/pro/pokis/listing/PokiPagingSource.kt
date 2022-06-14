@@ -3,9 +3,9 @@ package com.atidevs.pro.pokis.listing
 import android.accounts.NetworkErrorException
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.atidevs.pro.pokis.api.NetworkPoki
 import com.atidevs.pro.pokis.api.RestApiService
 import com.atidevs.pro.pokis.api.asPoki
+import com.atidevs.pro.pokis.common.data.Poki
 import com.atidevs.pro.pokis.utils.getQueryParams
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
