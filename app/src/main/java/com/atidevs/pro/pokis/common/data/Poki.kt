@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.common.data
 
 /**
  * Data representation of a Pokémon

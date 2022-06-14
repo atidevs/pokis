@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.views
+package com.atidevs.pro.pokis.common.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

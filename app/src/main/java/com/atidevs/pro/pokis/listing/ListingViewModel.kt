@@ -1,31 +1,25 @@
 package com.atidevs.pro.pokis.listing
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import androidx.paging.cachedIn
-import com.atidevs.pro.pokis.api.ApiServiceBuilder
-import com.atidevs.pro.pokis.api.RestApiService
-import kotlinx.coroutines.flow.Flow
+import com.atidevs.pro.pokis.common.data.Poki
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.launch
 
-class ListingViewModel : ViewModel() {
+class ListingViewModel(
+    application: Application,
+    repository: IListingRepository
+) : AndroidViewModel(application) {
 
-    var pokiFlow: Flow<PagingData<Poki>>
+    var pokiFlow: MutableStateFlow<PagingData<Poki>> = MutableStateFlow(PagingData.empty())
 
     init {
-        val apiService = ApiServiceBuilder.buildService(RestApiService::class.java)
-
-        pokiFlow = Pager(
-            PagingConfig(PokiPagingSource.PAGE_SIZE)
-        ) {
-            PokiPagingSource(apiService)
-        }.flow
-            .cachedIn(viewModelScope)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
+        viewModelScope.launch {
+            val flow = repository.getAllPokemons()
+            pokiFlow.emitAll(flow)
+        }
     }
 }
