@@ -1,7 +1,8 @@
 # pokis
 Displays cards of pokémons with lazy loading functionality!
 
-## 🚧 WIP: Upgrade architecture and tech stack through Jetpack tools. 
+## 🚧 WIP: Upgrade architecture and tech stack:
+Using MAD skills (Modern Android Development tools) from Google.
 
 |Splash screen   |Listing screen | Listing video |
 |----------------|---------------| --------------|
