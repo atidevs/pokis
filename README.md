@@ -1,8 +1,9 @@
 # pokis
 Displays cards of pokémons with lazy loading functionality!
 
-## 🚧 WIP: Upgrade architecture and tech stack:
-Using MAD skills (Modern Android Development tools) from Google.
+## 🚧 WIP: Upgrade architecture and tech stack
+Please make sure to checkout `pokis_mad` branch as I am rewriting and refactoring the app to a modern tech stack using MAD skills (Modern Android Development tools) Google's recommended way of developing for android.
+
 
 |Splash screen   |Listing screen | Listing video |
 |----------------|---------------| --------------|
