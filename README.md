@@ -4,6 +4,15 @@ Displays cards of pokémons with lazy loading functionality!
 ## 🚧 WIP: Upgrade architecture and tech stack
 Please make sure to checkout `pokis_mad` branch as I am rewriting and refactoring the app to a modern tech stack using MAD skills (Modern Android Development tools) Google's recommended way of developing for android.
 
+### Architecture and tech stack goals:
+- MVVM with usecases, data sources and repositories
+- 100% Kotlin
+- Kotlin flow (maybe a bit of LiveData too)
+- Kotlin coroutines
+- Jetpack paging for paginated data
+- Kotlin serialization library
+- Room DB for caching
+
 
 |Splash screen   |Listing screen | Listing video |
 |----------------|---------------| --------------|
