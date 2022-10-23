@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".PokiApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/data_backup"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".common.view.MainActivity"
+        <activity
+            android:name=".common.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
