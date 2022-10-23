@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.common.data
+package com.atidevs.pro.pokis.data.source.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.common.data
+package com.atidevs.pro.pokis.data.model
 
 /**
  * Data representation of a Pokémon

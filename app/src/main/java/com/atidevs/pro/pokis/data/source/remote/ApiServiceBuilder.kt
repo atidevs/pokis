@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.api
+package com.atidevs.pro.pokis.data.source.remote
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

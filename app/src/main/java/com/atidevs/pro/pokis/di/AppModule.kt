@@ -2,11 +2,11 @@ package com.atidevs.pro.pokis.common
 
 import android.content.Context
 import androidx.room.Room
-import com.atidevs.pro.pokis.api.ApiServiceBuilder
+import com.atidevs.pro.pokis.data.source.remote.ApiServiceBuilder
 import com.atidevs.pro.pokis.api.RetrofitApiService
-import com.atidevs.pro.pokis.common.data.PokiDatabase
-import com.atidevs.pro.pokis.listing.ListingRepository
-import com.atidevs.pro.pokis.listing.ListingRepositoryImpl
+import com.atidevs.pro.pokis.data.source.local.PokiDatabase
+import com.atidevs.pro.pokis.data.repository.ListingRepository
+import com.atidevs.pro.pokis.data.repository.ListingRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.atidevs.pro.pokis.databinding.FragmentListingBinding
+import com.atidevs.pro.pokis.adapter.PokiAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

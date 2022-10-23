@@ -1,9 +1,10 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import com.atidevs.pro.pokis.common.data.Poki
+import com.atidevs.pro.pokis.data.model.Poki
+import com.atidevs.pro.pokis.data.repository.ListingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emitAll

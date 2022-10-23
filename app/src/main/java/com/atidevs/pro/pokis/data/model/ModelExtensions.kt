@@ -1,7 +1,8 @@
 package com.atidevs.pro.pokis.api
 
-import com.atidevs.pro.pokis.common.data.Poki
-import com.atidevs.pro.pokis.common.data.PokiEntity
+import com.atidevs.pro.pokis.data.model.NetworkPoki
+import com.atidevs.pro.pokis.data.model.Poki
+import com.atidevs.pro.pokis.data.source.local.PokiEntity
 
 fun NetworkPoki.asPoki() = Poki(name = name, url = url)
 
