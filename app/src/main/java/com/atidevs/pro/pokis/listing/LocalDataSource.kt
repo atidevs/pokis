@@ -2,17 +2,18 @@ package com.atidevs.pro.pokis.listing
 
 import com.atidevs.pro.pokis.api.asEntity
 import com.atidevs.pro.pokis.common.data.Poki
-import com.atidevs.pro.pokis.common.data.PokiDao
+import com.atidevs.pro.pokis.common.data.PokiDatabase
 import com.atidevs.pro.pokis.common.data.PokiEntity
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class LocalDataSource(private val pokiDao: PokiDao) {
+class LocalDataSource @Inject constructor(private val pokiDb: PokiDatabase) {
 
     fun getPokemonByName(name: String): Flow<PokiEntity> {
-        return pokiDao.findByName(name)
+        return pokiDb.pokiDao().findByName(name)
     }
 
     fun saveAll(pokis: List<Poki>) {
-        pokiDao.insertAll(pokis.map { it.asEntity() })
+        pokiDb.pokiDao().insertAll(pokis.map { it.asEntity() })
     }
 }

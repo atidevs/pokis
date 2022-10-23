@@ -3,7 +3,7 @@ package com.atidevs.pro.pokis.listing
 import android.accounts.NetworkErrorException
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.atidevs.pro.pokis.api.RestApiService
+import com.atidevs.pro.pokis.api.RetrofitApiService
 import com.atidevs.pro.pokis.api.asPoki
 import com.atidevs.pro.pokis.common.data.Poki
 import com.atidevs.pro.pokis.utils.getQueryParams
@@ -12,9 +12,10 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.awaitResponse
 import java.io.IOException
+import javax.inject.Inject
 
-class PokiPagingSource(
-    private val apiService: RestApiService,
+class PokiPagingSource @Inject constructor(
+    private val apiService: RetrofitApiService,
     private val localCache: LocalDataSource
 ) : PagingSource<Int, Poki>() {
 

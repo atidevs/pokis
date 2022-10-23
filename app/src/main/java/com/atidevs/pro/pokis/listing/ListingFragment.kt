@@ -6,22 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.atidevs.pro.pokis.api.ApiServiceBuilder
 import com.atidevs.pro.pokis.common.PokiVIewModelFactory
 import com.atidevs.pro.pokis.common.ServiceLocator
 import com.atidevs.pro.pokis.databinding.FragmentListingBinding
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ListingFragment : Fragment() {
 
     private val listingViewModel by viewModels<ListingViewModel> {
         PokiVIewModelFactory(
-            requireActivity().application,
             ServiceLocator.provideListingRepository(requireContext())
         )
     }
