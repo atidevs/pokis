@@ -1,10 +1,12 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.atidevs.pro.pokis.api.asPoki
-import com.atidevs.pro.pokis.common.data.Poki
+import com.atidevs.pro.pokis.data.model.Poki
+import com.atidevs.pro.pokis.data.source.local.LocalDataSource
+import com.atidevs.pro.pokis.data.source.remote.PokiPagingSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

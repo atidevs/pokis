@@ -1,9 +1,9 @@
-package com.atidevs.pro.pokis.common.view
+package com.atidevs.pro.pokis.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.atidevs.pro.pokis.R
-import com.atidevs.pro.pokis.listing.ListingFragment
+import com.atidevs.pro.pokis.ui.ListingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

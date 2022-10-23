@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.atidevs.pro.pokis.R
-import com.atidevs.pro.pokis.common.data.Poki
+import com.atidevs.pro.pokis.data.model.Poki
 import com.atidevs.pro.pokis.utils.Utils
 import com.squareup.picasso.Picasso
 import java.util.*

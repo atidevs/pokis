@@ -1,7 +1,7 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.data.repository
 
 import androidx.paging.PagingData
-import com.atidevs.pro.pokis.common.data.Poki
+import com.atidevs.pro.pokis.data.model.Poki
 import kotlinx.coroutines.flow.Flow
 
 interface ListingRepository {

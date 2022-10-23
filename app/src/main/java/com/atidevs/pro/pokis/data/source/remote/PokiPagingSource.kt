@@ -1,11 +1,12 @@
-package com.atidevs.pro.pokis.listing
+package com.atidevs.pro.pokis.data.source.remote
 
 import android.accounts.NetworkErrorException
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.atidevs.pro.pokis.api.RetrofitApiService
 import com.atidevs.pro.pokis.api.asPoki
-import com.atidevs.pro.pokis.common.data.Poki
+import com.atidevs.pro.pokis.data.model.Poki
+import com.atidevs.pro.pokis.data.source.local.LocalDataSource
 import com.atidevs.pro.pokis.utils.getQueryParams
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

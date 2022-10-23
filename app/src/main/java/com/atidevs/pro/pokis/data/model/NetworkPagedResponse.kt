@@ -1,4 +1,4 @@
-package com.atidevs.pro.pokis.api
+package com.atidevs.pro.pokis.data.model
 
 import kotlinx.serialization.Serializable
 
