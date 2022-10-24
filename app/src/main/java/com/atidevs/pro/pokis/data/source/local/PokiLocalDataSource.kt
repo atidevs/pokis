@@ -6,7 +6,7 @@ import com.atidevs.pro.pokis.data.source.PokiDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class LocalDataSource @Inject constructor(private val pokiDb: PokiDatabase): PokiDataSource {
+class PokiLocalDataSource @Inject constructor(private val pokiDb: PokiDatabase): PokiDataSource {
 
     fun getPokemonByName(name: String): Flow<PokiEntity> {
         return pokiDb.pokiDao().findByName(name)

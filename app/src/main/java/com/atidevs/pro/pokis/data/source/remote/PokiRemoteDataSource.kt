@@ -6,7 +6,8 @@ import androidx.paging.PagingState
 import com.atidevs.pro.pokis.api.RetrofitApiService
 import com.atidevs.pro.pokis.api.asPoki
 import com.atidevs.pro.pokis.data.model.Poki
-import com.atidevs.pro.pokis.data.source.local.LocalDataSource
+import com.atidevs.pro.pokis.data.source.PokiDataSource
+import com.atidevs.pro.pokis.data.source.local.PokiLocalDataSource
 import com.atidevs.pro.pokis.utils.getQueryParams
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,10 +16,10 @@ import retrofit2.awaitResponse
 import java.io.IOException
 import javax.inject.Inject
 
-class PokiPagingSource @Inject constructor(
+class PokiRemoteDataSource @Inject constructor(
     private val apiService: RetrofitApiService,
-    private val localCache: LocalDataSource
-) : PagingSource<Int, Poki>() {
+    private val localCache: PokiLocalDataSource
+) : PagingSource<Int, Poki>(), PokiDataSource {
 
     override fun getRefreshKey(state: PagingState<Int, Poki>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
