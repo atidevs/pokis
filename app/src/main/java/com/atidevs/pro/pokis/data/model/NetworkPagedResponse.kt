@@ -1,5 +1,6 @@
 package com.atidevs.pro.pokis.data.model
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 /**
@@ -13,7 +14,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class NetworkPagedResponse(
     val count: Int,
-    val previous: String,
-    val next: String,
+    @SerializedName("previous")
+    val previousPage: String,
+    @SerializedName("next")
+    val nextPage: String,
     val results: List<NetworkPoki>
 )

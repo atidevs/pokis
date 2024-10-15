@@ -5,7 +5,8 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [PokiEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false,
 )
 abstract class PokiDatabase : RoomDatabase() {
     abstract fun pokiDao(): PokiDao
