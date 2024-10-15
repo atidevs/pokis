@@ -31,9 +31,8 @@ class PokiRemoteDataSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Poki> {
         return withContext(Dispatchers.IO) {
             val nextPageNumber = params.key ?: FIRST_PAGE
-            val call = apiService.getPokemons(nextPageNumber, PAGE_SIZE)
+            val response = apiService.getPokemons(nextPageNumber, PAGE_SIZE)
             try {
-                val response = call.awaitResponse()
                 if (response.isSuccessful && response.body() != null) {
                     val body = response.body()
                     val responseItems = body?.results?.map { it.asPoki() }
@@ -42,7 +41,7 @@ class PokiRemoteDataSource @Inject constructor(
                         LoadResult.Page(
                             responseItems,
                             null,
-                            body.next.getQueryParams()[OFFSET_QUERY_PARAM]?.toInt()
+                            body.nextPage.getQueryParams()[OFFSET_QUERY_PARAM]?.toInt()
                         )
                     } ?: throw NetworkErrorException()
                 } else {
